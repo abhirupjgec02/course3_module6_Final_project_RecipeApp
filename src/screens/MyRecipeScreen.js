@@ -6,6 +6,7 @@ import {
     Image,
     StyleSheet,
     ActivityIndicator,
+    Dimensions
   } from "react-native";
   import React, { useEffect, useState } from "react";
   import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -14,8 +15,11 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
   } from "react-native-responsive-screen";
+
+  const { width } = Dimensions.get('window');
   
   export default function MyRecipeScreen() {
+
     const navigation = useNavigation();
     const [recipes, setrecipes] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -136,9 +140,9 @@ import {
     addButton: {
       backgroundColor: "#4F75FF",
       padding: wp(.7),
-      alignItems: "center",
+      alignSelf: 'center',
       borderRadius: 5,
-      width:300,
+      width: 500,
      marginLeft:500
       // marginBottom: hp(2),
     },
